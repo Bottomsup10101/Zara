@@ -1,0 +1,35 @@
+//Palindrom
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main()
+{
+    string input;
+    cout<<"Enter A String: ";
+    cin>>input;
+    
+    int start=0;
+    int end=input.length()-1;
+    bool isPalindrom=true;
+    
+    
+    while(start<end){
+        if(input[start]!=input[end]){
+            isPalindrom=false;
+            break;
+        }
+        start++;
+        end--;
+    }
+    
+    if(isPalindrom){
+        cout<<input<<" is palindrom.";
+    }
+    else{
+        cout<<input<<"is not palindrom.";
+    }
+    
+}
