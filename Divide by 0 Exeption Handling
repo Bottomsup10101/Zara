@@ -1,0 +1,78 @@
+//Divide by 0 Exeption Handling
+
+#include <iostream>
+using namespace std;
+
+int dividenumber(int a,int b){
+    if(a==0||b==0){
+        cout<<"Error!!";
+    }
+    
+    int result=a/b;
+    
+    return result;
+}
+
+
+
+int main()
+{
+    int choice,a,b;
+    cout<<"Select An Option"<<endl;
+    cout<<"1.Both Positive"<<endl;
+    cout<<"2.Both Negative"<<endl;
+    cout<<"3.One Positive & One Zero"<<endl;
+    cout<<"4.One NEgative & One zero"<<endl;
+    cout<<"Enter Choice:";
+    cin>>choice;
+    
+    if(choice<5){
+        cout<<"Enter A:";
+        cin>>a;
+        cout<<"ENter B:";
+        cin>>b;
+
+        switch(choice){
+            
+            case 1:
+                if(a<0||b<0){
+                    cout<<"Invalid Input.";
+                }
+                else{
+                
+                    cout<<"Result:"<<dividenumber(a,b);
+                }
+                break;
+            case 2:
+                 if(a>0||b>0){
+                    cout<<"Invalid Input.";
+                  }
+                 else{
+                     cout<<"Result:"<<dividenumber(a,b);
+                     }
+                    break;
+            case 3:
+                if (a > 0 && b == 0) {
+                    cout << "Result: inf" << endl;
+                } else if (a == 0 && b > 0) { 
+                    cout << "Result: 0" << endl;
+                } else {
+                    cout << "Invalid option";
+                }
+                break;
+            case 4:
+                 if (a < 0 && b == 0) {
+                    cout << "Result: -inf" << endl;
+                } else if (a == 0 && b < 0) { 
+                    cout << "Result: 0" << endl;
+                } else {
+                    cout << "Invalid option";
+                }
+                break;
+
+        }
+        
+        
+    }
+  
+}
