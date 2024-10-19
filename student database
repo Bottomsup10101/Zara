@@ -1,0 +1,99 @@
+
+#include <iostream> 
+#include<string>
+using namespace std; 
+
+class Student{
+   private:
+    string student_name;
+    int student_roll;
+    string student_address;
+    string student_branch;
+    
+    public:
+    
+    Student(){
+        student_name="Om Patil";
+        student_roll=30;
+        student_address="Pune";
+        student_branch="AI & DS";
+    }
+    
+    Student(string name,int roll,string address,string branch){
+        student_name=name;
+        student_roll=roll;
+        student_address=address;
+        student_branch=branch;
+    }
+    
+    Student(const Student& other){
+        student_name=other.student_name;
+        student_roll=other.student_roll;
+        student_address=other.student_address;
+        student_branch=other.student_branch;
+    }
+    
+    
+    
+    void setstudent_name(string name){
+        student_name=name;
+    }
+    
+     void setstudent_roll(int roll){
+        student_roll=roll;
+    }
+    
+     void setstudent_address(string address){
+        student_address=address;
+    }
+    
+     void setstudent_branch(string branch){
+        student_branch=branch;
+    }
+    
+    
+    
+    
+    string getstudentname(){
+        return student_name;
+    }
+    
+    int getstudentroll(){
+        return student_roll;
+    }
+    
+    string getstudentadddress(){
+        return student_address;
+    }
+    
+    string getstudentbranch(){
+        return student_branch;
+    }
+    
+    void displayStudentInfo(){
+        cout<<"Student NAme:"<<student_name;
+        cout<<"Student Roll:"<<student_roll;
+        cout<<"Student Address:"<<student_address;
+        cout<<"Student Branch:"<<student_branch;
+    }
+
+};
+
+
+int main() {
+    
+    Student student("Om", 30, "Pune", "Ai & Ds"); 
+    student.displayStudentInfo();
+    
+    
+    Student student2; 
+    student2.setstudent_name("Om"); 
+    student2.setstudent_roll(30); 
+    student2.setstudent_address("Pune"); 
+    student2.setstudent_branch("Ai & Ds"); 
+    student2.displayStudentInfo();
+    
+    Student student3 = student; 
+    student3.displayStudentInfo();
+
+}
