@@ -1,0 +1,82 @@
+//Complex Number
+
+#include <iostream>
+using namespace std;
+
+class complexnumber{
+    private:
+            double real;
+            double imaginary;
+    public:
+        
+        void setcomplexnumber(double r,double i){
+            real=r;
+            imaginary=i;
+        }
+        
+        void display(){
+            cout<<real<<"+"<<imaginary<<"i"<<endl;
+        }
+        void inputcomplex(){
+             cout << "Enter real part: ";
+            cin >> real;
+            cout << "Enter imaginary part: ";
+            cin >> imaginary;
+        }
+        
+        complexnumber add(complexnumber other){
+            complexnumber result;
+            result.real=real+other.real;
+            result.imaginary=imaginary+other.imaginary;
+            
+            return result;
+        }
+        
+        complexnumber substract(complexnumber other){
+            complexnumber result;
+            result.real=real-other.real;
+            result.imaginary=imaginary-other.imaginary;
+            
+            return result;
+        }
+        complexnumber multiply(complexnumber other){
+            complexnumber result;
+            result.real=real*other.real-imaginary*other.imaginary;
+            result.imaginary=real*other.imaginary+imaginary*other.real;
+            
+            return result;
+        }
+};
+
+int main()
+{
+    complexnumber c1,c2;
+    cout<<"Enter First Complex No: \n";
+    c1.inputcomplex();
+    cout<<"Enter second Complex No: \n";
+    c2.inputcomplex();
+    
+    cout<<"Complex No. C1 is: ";
+    c1.display();
+    cout<<"Complex No. C2 is: ";
+    c2.display();
+    
+    complexnumber resultadd=c1.add(c2);
+    complexnumber resultsubst=c1.substract(c2);
+    complexnumber resultmul=c1.multiply(c2);
+    
+    
+    cout<<"Addition Of Two Complex Number is: ";
+    resultadd.display();
+    
+    cout<<"Substraction Of Two Complex Number is: ";
+     resultsubst.display();
+     
+     cout<<"Multiplication Of Two Complex Number is: ";
+      resultmul.display();
+    
+    
+    
+    
+
+}
