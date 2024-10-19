@@ -1,0 +1,19 @@
+//catch throw
+#include <iostream> 
+using namespace std; 
+int main() {
+    try {
+        int a,b;
+        cout << "Enter values : " << endl; 
+        cin >> a >> b;
+    if (b!=0) {
+        cout << "The result is " << a/(b*1.0) << endl;
+    }
+    else 
+    throw (b);
+    }
+    catch(int c) {
+        cout << "Exception occured: Divide by " << c ;
+    }
+    return 0;
+}
