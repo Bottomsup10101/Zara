@@ -1,0 +1,65 @@
+
+#include <iostream> 
+using namespace std; 
+
+class tollboth{
+    private:
+        int totalcar;
+        double totalcash;
+    public:
+        tollboth():totalcar(0),totalcash(0.0){}
+        
+        void paycar(){
+            double amount;
+            cout<<"Enter the Amount For Individual Car:"<<endl;
+            cin>>amount;
+            totalcash+=amount;
+            totalcar++;
+            display();
+        } 
+        
+        void nopaycar(){
+            totalcar++;
+            display();
+        }
+        
+        void display(){
+            cout<<"Total Cars:"<<totalcar<<endl;
+            cout<<"Total Cash:"<<totalcash<<endl;
+        }
+    
+};
+
+int main() {
+    
+    tollboth both;
+    int choice;
+    
+    cout<<"Select An Option:"<<endl;
+    cout<<"1. Total Paying Cars"<<endl;
+    cout<<"2. Total Non-paying Cars"<<endl;
+    cout<<"3. Total"<<endl;
+    cout<<"4. Exit."<<endl;
+    cout<<"Enter Choice:";
+    cin>>choice;
+    while(true){
+    switch(choice){
+        case 1:
+            both.paycar();
+            break;
+        case 2:
+            both.nopaycar();
+            break;
+        case 3:
+            both.display();
+            break;
+        case 4:
+            return 0;
+        default:
+            cout<<"Invalid Choice."<<endl;
+            break;
+    }
+    }
+    
+     return 0;
+}
