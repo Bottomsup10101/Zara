@@ -1,0 +1,36 @@
+//virtual function
+#include <iostream> 
+using namespace std; 
+
+class Animal{
+    public:
+    virtual void sound(){
+        cout<<"Generic Animal Sound";
+    }
+};
+
+class dog:public Animal{
+  void sound() override{
+      cout<<"Woof";
+  }  
+};
+class cat:public Animal{
+  void sound() override{
+      cout<<"Meow";
+  }  
+};
+
+int main() {
+    Animal* animal=new dog();
+    animal->sound();
+    cout<<endl;
+    
+    animal=new cat();
+    animal->sound();
+    cout<<endl;
+    
+    animal=new Animal();
+    animal->sound();
+    
+    return 0;
+}
