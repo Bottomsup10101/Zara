@@ -1,27 +1,3 @@
-
-#include <iostream> 
-using namespace std; 
-
-class demo{
-    private:
-        static int next_sr_no;
-        int sr_no;
-    public:
-    
-        demo(){
-            sr_no=next_sr_no;
-            next_sr_no++;
-        }
-        
-        void display(){
-            cout<<sr_no<<endl;
-        }
-};
-
-int demo::next_sr_no=1;
-
-int main(){
-  
 #include <iostream> 
 using namespace std; 
 
@@ -55,10 +31,5 @@ int main(){
         object[i].display();
     }
   
-     return 0;
-}
-    
-    
-    
      return 0;
 }
