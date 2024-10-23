@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class to represent a publication (common properties for both books and tapes)
+class Publication {
+protected:
+    string title;  // Title of the publication
+    float price;   // Price of the publication
+
+public:
+    // Function to input data for publication
+    void getData() {
+        cout << "Enter title: ";
+        getline(cin, title);
+        cout << "Enter price: ";
+        cin >> price;
+        cin.ignore();  // To clear the newline character after entering price
+    }
+
+    // Function to display data of the publication
+    void putData() const {
+        cout << "Title: " << title << endl;
+        cout << "Price: $" << price << endl;
+    }
+};
+
+// Derived class for Book, adds page count
+class Book : public Publication {
+private:
+    int pageCount;  // Page count of the book
+
+public:
+    // Function to input data for book
+    void getData() {
+        Publication::getData();  // Call the base class function to input title and price
+        cout << "Enter page count: ";
+        cin >> pageCount;
+        cin.ignore();  // Clear the newline character after entering page count
+    }
+
+    // Function to display data of the book
+    void putData() const {
+        Publication::putData();  // Call the base class function to display title and price
+        cout << "Page Count: " << pageCount << endl;
+    }
+};
+
+// Derived class for Tape, adds playing time
+class Tape : public Publication {
+private:
+    float playingTime;  // Playing time in minutes
+
+public:
+    // Function to input data for tape
+    void getData() {
+        Publication::getData();  // Call the base class function to input title and price
+        cout << "Enter playing time (in minutes): ";
+        cin >> playingTime;
+        cin.ignore();  // Clear the newline character after entering playing time
+    }
+
+    // Function to display data of the tape
+    void putData() const {
+        Publication::putData();  // Call the base class function to display title and price
+        cout << "Playing Time: " << playingTime << " minutes" << endl;
+    }
+};
+
+// Main function
+int main() {
+    Book myBook;        // Create a Book object
+    Tape myTape;        // Create a Tape object
+
+    // Get data for the book
+    cout << "Enter details for the book:\n";
+    myBook.getData();
+
+    // Get data for the tape
+    cout << "\nEnter details for the tape:\n";
+    myTape.getData();
+
+    // Display data for the book
+    cout << "\nDetails of the book:\n";
+    myBook.putData();
+
+    // Display data for the tape
+    cout << "\nDetails of the tape:\n";
+    myTape.putData();
+
+    return 0;
+}
