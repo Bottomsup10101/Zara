@@ -23,7 +23,8 @@ void sortArray(float* arr, int n)
 
 void printArray(float* arr, int n) { 
     for (int i = 0; i < n; i++) {
-        cout << *arr << " "; arr++;
+        cout << *arr << " "; 
+        arr++;
     }
     cout << endl;
 }
