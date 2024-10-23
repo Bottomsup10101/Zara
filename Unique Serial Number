@@ -21,19 +21,42 @@ class demo{
 int demo::next_sr_no=1;
 
 int main(){
-    demo d1;
-    demo d2;
-    demo d3;
-    demo d4;
+  
+#include <iostream> 
+using namespace std; 
+
+class demo{
+    private:
+        static int next_sr_no;
+        int sr_no;
+    public:
     
-    cout<<"Object 1 Serial No:";
-    d1.display();
-    cout<<"Object 2 Serial No:";
-    d2.display();
-    cout<<"Object 3 Serial No:";
-    d3.display();
-    cout<<"Object 4 Serial No:";
-    d4.display();
+        demo(){
+            sr_no=next_sr_no;
+            next_sr_no++;
+        }
+        
+        void display(){
+            cout<<sr_no<<endl;
+        }
+};
+
+int demo::next_sr_no=1;
+
+int main(){
+    int i,n;
+    cout<<"Enter the no. of Objects: ";
+    cin>>n;
+    
+    demo* object=new demo[n];
+    
+    for(i=0;i<n;i++){
+        cout<<"Object "<<i+1<<" serial no. is:";
+        object[i].display();
+    }
+  
+     return 0;
+}
     
     
     
