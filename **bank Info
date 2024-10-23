@@ -1,0 +1,103 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class representing a generic Customer
+class Customer {
+protected:
+    string name;         // Customer's name
+    string phone_no;     // Customer's phone number
+
+public:
+    // Function to input customer details
+    void setCustomerDetails(const string& n, const string& p) {
+        name = n;
+        phone_no = p;
+    }
+
+    // Function to display customer details
+    void displayCustomerDetails() {
+        cout << "Customer Name: " << name << endl;
+        cout << "Phone Number: " << phone_no << endl;
+    }
+};
+
+// Derived class from Customer for handling depositor details
+class Depositor : public Customer {
+protected:
+    int account_no;      // Account number
+    double balance;      // Account balance
+
+public:
+    // Function to input depositor details
+    void setDepositorDetails(int acc_no, double bal) {
+        account_no = acc_no;
+        balance = bal;
+    }
+
+    // Function to display depositor details
+    void displayDepositorDetails() {
+        displayCustomerDetails();  // Display inherited customer details
+        cout << "Account Number: " << account_no << endl;
+        cout << "Account Balance: $" << balance << endl;
+    }
+};
+
+// Derived class from Depositor for handling borrower details
+class Borrower : public Depositor {
+private:
+    int loan_no;         // Loan number
+    double loan_amount;  // Loan amount
+
+public:
+    // Function to input borrower details
+    void setBorrowerDetails(int loan_no, double loan_amt) {
+        this->loan_no = loan_no;
+        loan_amount = loan_amt;
+    }
+
+    // Function to display borrower details
+    void displayBorrowerDetails() {
+        displayDepositorDetails();  // Display inherited depositor details
+        cout << "Loan Number: " << loan_no << endl;
+        cout << "Loan Amount: $" << loan_amount << endl;
+    }
+};
+
+int main() {
+    Borrower borrower;  // Create an object of Borrower class
+
+    // Input customer, depositor, and borrower details
+    string name, phone;
+    int acc_no, loan_no;
+    double balance, loan_amt;
+
+    cout << "Enter customer name: ";
+    getline(cin, name);
+
+    cout << "Enter customer phone number: ";
+    getline(cin, phone);
+
+    cout << "Enter account number: ";
+    cin >> acc_no;
+
+    cout << "Enter account balance: ";
+    cin >> balance;
+
+    cout << "Enter loan number: ";
+    cin >> loan_no;
+
+    cout << "Enter loan amount: ";
+    cin >> loan_amt;
+
+    // Set the details in the Borrower object
+    borrower.setCustomerDetails(name, phone);
+    borrower.setDepositorDetails(acc_no, balance);
+    borrower.setBorrowerDetails(loan_no, loan_amt);
+
+    // Display the details
+    cout << "\nDisplaying Customer, Depositor, and Borrower Details:\n";
+    borrower.displayBorrowerDetails();
+
+    return 0;
+}
